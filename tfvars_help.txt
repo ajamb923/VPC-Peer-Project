@@ -1,0 +1,10 @@
+// PASS VALUES INTO VARIABLE    
+
+create_instance = true
+vpc_cidr_block = ["1.0.0.0/16","2.0.0.0/16"]
+subnet_cidr_block = ["1.0.1.0/24","2.0.2.0/24"]
+ami = ["ami-0b5eea76982371e91","ami-05bfbece1ed5beb54"]
+instance-type = "t2.micro"
+keyname1 = ""
+keyname2 = ""
+peer-region = "us-east-2"
