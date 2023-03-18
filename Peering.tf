@@ -10,7 +10,7 @@ resource "aws_vpc_peering_connection" "vpcA-B" {
   vpc_id        = aws_vpc.vpcA.id
   peer_vpc_id   = aws_vpc.vpcB.id
   peer_owner_id = data.aws_caller_identity.id-accepter.account_id
-  peer_region = "us-east-2"
+  peer_region = var.peer-region
   auto_accept = false
 
 #   accepter {

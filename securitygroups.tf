@@ -21,7 +21,7 @@ resource "aws_security_group" "vpcA-sg" {
     from_port   = -1
     to_port     = -1
     protocol    = "icmp"
-    cidr_blocks = ["2.0.0.0/16"]
+    cidr_blocks = [var.vpc_cidr_block[1]]
     #security_groups = [aws_security_group.vpcB-sg]
   }
 
@@ -60,7 +60,7 @@ resource "aws_security_group" "vpcB-sg" {
     from_port   = -1
     to_port     = -1
     protocol    = "icmp"
-    cidr_blocks = ["1.0.0.0/16"]
+    cidr_blocks = [var.vpc_cidr_block[0]]
   }
 
   egress {

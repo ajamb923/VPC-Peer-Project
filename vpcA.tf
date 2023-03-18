@@ -1,6 +1,6 @@
 // VPC - A
 resource "aws_vpc" "vpcA" {
-    cidr_block = "1.0.0.0/16"
+    cidr_block = var.vpc_cidr_block[0]
     enable_dns_support   = true
     enable_dns_hostnames = true
     tags = {
@@ -13,7 +13,7 @@ resource "aws_vpc" "vpcA" {
 resource "aws_subnet" "subnetA" {
     vpc_id  = aws_vpc.vpcA.id 
     map_public_ip_on_launch = true
-    cidr_block  = "1.0.1.0/24"
+    cidr_block  = var.subnet_cidr_block[0]
     tags = {
         Name = "SUBNET-A"
     }
@@ -39,7 +39,7 @@ resource "aws_route_table" "rtA" {
     }
 
     route {
-        cidr_block = "2.0.0.0/16"
+        cidr_block = var.vpc_cidr_block[1]
         gateway_id = aws_vpc_peering_connection.vpcA-B.id
     }
 

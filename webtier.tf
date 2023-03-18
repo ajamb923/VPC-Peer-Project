@@ -1,11 +1,11 @@
 // Instance - A
 resource "aws_instance" "instanceA" {
     count = var.create_instance == true ? 1 : 0
-    ami = "ami-0b5eea76982371e91"
-    instance_type = "t2.micro"
+    ami = var.ami[0]
+    instance_type = var.instance-type
     subnet_id = aws_subnet.subnetA.id
     vpc_security_group_ids = [aws_security_group.vpcA-sg.id]
-    key_name = "NOVA_KP"
+    key_name = var.keyname1
     tags = {
         Name = "INSTANCE-A"
     }
@@ -15,11 +15,11 @@ resource "aws_instance" "instanceA" {
 // Instance - B
 resource "aws_instance" "instanceB" {
     count = var.create_instance == true ? 1 : 0
-    ami = "ami-05bfbece1ed5beb54"
-    instance_type = "t2.micro"
+    ami = var.ami[1]
+    instance_type = var.instance-type
     subnet_id = aws_subnet.subnetB.id
     vpc_security_group_ids = [aws_security_group.vpcB-sg.id]
-    key_name = "Ohio_KP"
+    key_name = var.keyname2
     tags = {
         Name = "INSTANCE-B"
     }
